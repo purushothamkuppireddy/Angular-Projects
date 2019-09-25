@@ -1,0 +1,34 @@
+[
+{
+    "collegeId":1004,
+    "collegeName":"IIT",
+    "state":"Delhi",
+    "collegeFee":80000
+},
+{
+    "collegeId":1002,
+    "collegeName":"BIT Mesra",
+    "state":"Ranchi",
+    "collegeFee":40000
+},
+{
+    "collegeId":1003,
+    "collegeName":"BITS",
+    "state":"Pilani",
+    "collegeFee":50000
+},
+{
+    "collegeId":1001,
+    "collegeName":"NIIT",
+    "state":"Suratkal",
+    "collegeFee":60000
+},
+{
+    "collegeId":1005,
+    "collegeName":"REC",
+    "state":"Kolkata",
+    "collegeFee":65000
+}
+
+
+]

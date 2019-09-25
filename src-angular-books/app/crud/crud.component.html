@@ -1,0 +1,44 @@
+<!-- <p>
+  crud works!
+</p> -->
+<h1>Books Table</h1>
+<table  class="table table-striped table-bordered table-hover table-sm ">
+ <tr style="background-color: cyan">
+   <th>Index</th>
+   <th><a (click)="sor(1)"> ID</a></th>
+   <th><a (click)="sor(2)"> Title</a></th>
+   <th><a (click)="sor(3)">Year</a></th>
+   <th><a (click)="sor(4)">Author</a></th>
+   <th>Deletion</th>
+   <th>Updation</th>
+ </tr>
+<tr *ngFor="let book of books;let i=index">
+  <td>{{i+1}}</td>
+  <td>{{book.id}}</td>
+  <td>{{book.title}}</td>
+  <td>{{book.year}}</td>
+  <td>{{book.author}}</td>
+  <td><button  (click)="deleteBook(i)" class="btn btn-danger">DELETE</button></td>
+  <td><button (click)="updateBook(i,book)" class="btn btn-warning">UPDATE</button></td>
+</tr>
+</table>
+
+<h1>Adding of books</h1>
+<form #addBook="ngForm"  (ngSubmit)="add(addBook.value)">
+<input type="number" name="id" ngModel>
+<input type="text" name="title" ngModel>
+<input type="number" name="year" ngModel>
+<input type="text" name="author" ngModel><br>
+<button class="btn btn-success">ADD</button>
+</form>
+<br>
+<div *ngIf="isUpdate">
+<h1>Updating of Book</h1>
+<form #update="ngForm" (ngSubmit)="  updateBook2(update.value)">
+    <!-- <input type="number" name="id" ngModel> -->
+    <input type="text" name="title"ngModel={{book.title}}>
+    <input type="number" name="year" ngModel={{book.year}}>
+    <input type="text" name="author"ngModel={{book.author}}><br>
+    <button class="btn btn-success"  >update</button>
+</form>
+</div>

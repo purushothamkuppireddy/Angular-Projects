@@ -1,0 +1,19 @@
+
+<table border=1>
+  <tr >
+    <th><a (click)="sor(1)"> College Id</a></th>  <!--sor(1) sorting the college Id in assending order-->
+    <th><a (click)="sor(2)">College Name</a></th> <!--sor(2) sorting the college Name in assending order-->
+    <th><a (click)="sor(3)">State</a></th>        <!--sor(3) sorting the state in assending order-->
+    <th><a (click)="sor(4)">College Fee</a></th>  <!--sor(4) sorting the college Fee in assending order-->
+    <th>ACTION</th>
+  </tr>
+  <tr *ngFor="let college of colleges;let i=index">
+    <td>{{college.collegeId}}</td>        <!--String Interpolation-->
+    <td>{{college.collegeName}}</td>
+    <td>{{college.state}}</td>
+    <td>{{college.collegeFee|currency}}</td>
+    
+    <!--on clicking deleteCollege method is called-->
+    <td><button (click)="deleteCollege(i)">Delete</button></td>   
+  </tr>
+</table>

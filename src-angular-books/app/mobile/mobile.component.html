@@ -1,0 +1,59 @@
+<h1>Mobile Table</h1>
+<table border="1">
+  <tr style="background-color: cyan">
+    <th>Index</th>
+    <th><a (click)="sor(1)">Mobile Id</a></th>
+    <th><a (click)="sor(2)">Mobile Name</a></th>
+    <th><a (click)="sor(3)">Mobile Price</a></th>
+    <th>Action1</th>
+    <th>Action2</th>
+
+  </tr>
+  <tr *ngFor="let mobile of mobiles;let i=index">
+    <td>{{i+1}}</td>
+    <td>{{mobile.mobId}}</td>
+    <td>{{mobile.mobName}}</td>
+    <td>{{mobile.mobPrice|currency}}</td>
+    <td><button class="btn btn-danger" (click)=deleteMobile(i)>Delete</button></td>
+    <td><button class="btn btn-warning" (click)=updateMobile(i)>Update</button></td>
+  </tr>
+
+</table>
+<br>
+<h1>Adding of Mobiles</h1>
+<form [formGroup]="form" (ngSubmit)="form.valid && addMobile()">
+
+  ID:<div class="form-group">
+    <input type="number" formControlName="id"
+      [ngClass]="{'is-invalid':form.get('id').touched && form.get('id').invalid}">
+    <div *ngIf="{'is-invalid':form.get('id').touched && form.get('id').invalid}" class="invalid-feedback">
+      <!-- <div *ngIf="form.get('id').errors.required">Id is required</div> -->
+      <!-- <div *ngIf="form.get('id').errors.minlength">Id minlength is 3</div> -->
+    </div>
+  </div>
+  Name:<div class="form-group"><input type="text" formControlName="name"
+      [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').errors}">
+    <div *ngIf="form.get('name').touched &&form.get('name').errors" class="invalid-feedback">
+      <div *ngIf="form.get('name').errors.required">Name is required</div>
+    </div>
+  </div>
+  Price:<div class="form-group"><input type="number" formControlName="price"
+      [ngClass]="{'is-invalid':form.get('price').touched && form.get('price').errors}">
+    <div * ngIf="form.get('price').touched && form.get('price').errors" class="invalid-feedback">
+        <div *ngIf="form.get('price').errors.required">price is required</div>
+      
+    </div>
+  </div>
+
+  <button class="btn btn-success">ADD</button>
+</form>
+
+<div *ngIf="isUpdate">
+  <h1>Updating of Mobile</h1>
+  <form #update="ngForm" (ngSubmit)="updateMobile2(update.value)">
+    <!-- <input type="number" name="id" ngModel> -->
+    <input type="text" name="Name" ngModel={{mobile.mobName}}>
+    <input type="number" name="Price" ngModel={{mobile.mobPrice}}> <br>
+    <button  class="btn btn-success">update</button>
+  </form>
+</div>
