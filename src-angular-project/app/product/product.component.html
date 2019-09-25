@@ -1,0 +1,54 @@
+
+
+
+<h1>Product Table</h1>
+<table border=1 class="table table-striped table-bordered table-hover table-sm ">
+  <tr style="background-color: cyan">
+    <!-- <th>Index</th> -->
+    <th><a (click)="sor(1)"> ID</a></th>
+    <th><a (click)="sor(2)">Category</a></th>
+    <th><a (click)="sor(3)">Name</a></th>
+    <th><a (click)="sor(4)">Price</a></th>
+    <th><a (click)="sor(5)">Quantity</a></th>
+    <th>Deletion</th>
+    <th>Updation</th>
+  </tr>
+  <tr *ngFor="let product of products;let i=index">
+    <!-- <td>{{i+1}}</td> -->
+    <td>{{product.id}}</td>
+    <td>{{product.productCategories}}</td>
+    <td>{{product.productName}}</td>
+    <td>{{product.price|currency:"INR"}}</td>
+    <td>{{product.quantity}}</td>
+    <td><button class="btn btn-danger"(click)="deleteProduct(i)" >DELETE</button></td>
+    <td><button (click)="updateProduct1(i,product)" class="btn btn-warning">UPDATE</button></td>
+  </tr>
+</table>
+<br>
+<h1>Adding of Product</h1>
+
+<form #addProduct="ngForm" (ngSubmit)="add(addProduct.value)">
+  Id:<div class="form-group">
+    <input type="number"  name="id" ngModel></div>
+  productCatogories:<div class="form-group">
+    <input type="text"  name="productCatogories" ngModel></div>
+  ProductName:<div class="form-group">
+    <input type="number"  name="productName" ngModel></div>
+  Price:<div class="form-group">
+    <input type="text"  name="price" ngModel></div>
+  Quantity<div class="form-group">
+    <input type="text"  name="quantity" ngModel></div>
+  <button class="btn btn-success">ADD</button>
+</form>
+<br>
+
+<div *ngIf="isUpdate">
+  <h1>Updating of Product</h1>
+  <form #update="ngForm" (ngSubmit)="  updateProduct2(update.value)">
+    <input type="text" name="productCategories" ngModel={{product.productCategories}}>
+    <input type="text" name="productName" ngModel={{product.productName}}>
+    <input type="number" name="price" ngModel={{product.price}}>
+    <input type="number" name="quantity" ngModel={{product.quantity}}><br>
+    <button class="btn btn-success">update</button>
+  </form>
+</div>

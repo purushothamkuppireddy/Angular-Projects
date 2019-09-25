@@ -1,0 +1,32 @@
+<br>
+<br>
+<br>
+<div class="card text-white" style="width: 35em;margin:0 auto;">
+  <div class="card-header bg-info" style="text-align: center">ADMIN LOGIN</div>
+  <div class="card-body">
+      <div class="col-md-6 offset-md-3">
+    <form [formGroup]="registerForm" (ngSubmit)="login()">
+      <div class="form-group">
+        <!-- <label>Admin userID:</label> -->
+        <input type="text" name="aName" formControlName="userId" placeholder="Enter Admin Id" class="form-control"
+          [ngClass]="{ 'is-invalid': submitted && f.userId.errors }" />
+        <div *ngIf="submitted && f.userId.errors" class="invalid-feedback">
+          <div>userId is invalid</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <!-- <label>Password</label> -->
+        <input type="password" name="pass" formControlName="password" placeholder="Enter Admin Password"
+          class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+          <div *ngIf="f.password.errors.required">password is required</div>
+        </div>
+      </div>
+      <div> <button name="loginButton" class="btn btn-success">Login</button></div>
+    </form>
+  </div>
+</div>
+</div>
+
+
+

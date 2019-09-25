@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "productCategories": "TV",
+      "productName":"Samsung",
+      "price": 40000,
+      "quantity": 3
+    },
+    {
+      "id": 2,
+      "productCategories": "Mobile",
+      "productName":"Samsung S10",
+      "price": 65000,
+      "quantity": 5
+    },
+    {
+      "id": 3,
+      "productCategories": "Laptop",
+      "productName":"Acer",
+      "price": 78000,
+      "quantity": 8
+    },
+    {
+      "id": 4,
+      "productCategories": "TV",
+      "productName":"Sony Bravia",
+      "price": 123443,
+      "quantity": 3
+    },
+    {
+      "id": 5,
+      "productCategories": "Mobile",
+      "productName":"Oppo S10",
+      "price": 33455,
+      "quantity": 45
+    },
+    {
+      "id": 6,
+      "productCategories": "Mobile",
+      "productName":"Vivo X5",
+      "price": 23443,
+      "quantity": 35
+    }
+    
+  ]

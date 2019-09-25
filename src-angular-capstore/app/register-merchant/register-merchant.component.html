@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="jumbotron">
+        <h2> Merchant RegisterForm:</h2>
+        <h1 style="text-align: center;color: darkgreen;font-family: 'Lucida Sans'"></h1>
+        <form name="form1" [formGroup]="registerForm" (ngSubmit)="registerForm.valid && register()">
+            <div class="form-group">
+                <label>Merchant Name:</label>
+                <input type="text" class="form-control" name="mname" formControlName="merchantName"
+                    [ngClass]="{'is-invalid':registerForm.get('merchantName').touched  && registerForm.get('merchantName').invalid}">
+                <div class="invalid-feedback">
+                    <div>FirstName is required</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="text" class="form-control" name="email" formControlName="merchantEmail"
+                    [ngClass]="{'is-invalid':registerForm.get('merchantEmail').touched && registerForm.get('merchantEmail').invalid}">
+                <div *ngIf="registerForm.get('merchantEmail').touched && registerForm.get('merchantEmail').invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="registerForm.get('merchantEmail').errors.required ">email is required</div>
+                    <div *ngIf="registerForm.get('merchantEmail').errors.email">email is invalid</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Mobile:</label>
+                <input type="text" class="form-control" name="mobile" formControlName="merchantContactNumber"
+                    [ngClass]="{'is-invalid':registerForm.get('merchantContactNumber').touched  && registerForm.get('merchantContactNumber').invalid}">
+                <div *ngIf="registerForm.get('merchantContactNumber').touched && registerForm.get('merchantContactNumber').invalid"
+                    class="invalid-feedback">
+                    <div *ngIf="registerForm.get('merchantContactNumber').errors.required">Mobile is required</div>
+                    <div *ngIf="(registerForm.get('merchantContactNumber').errors.minlength)||(registerForm.get('merchantContactNumber').errors.maxlength)">
+                        mobile number should be 10 digits  </div>
+                  
+                </div>
+            </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" class="form-control" name="pass" formControlName="merchantPassword"
+                        [ngClass]="{'is-invalid':registerForm.get('merchantPassword').touched && registerForm.get('merchantPassword').invalid}">
+                    <div *ngIf="registerForm.get('merchantPassword').touched && registerForm.get('merchantPassword').invalid"
+                        class="invalid-feedback">
+                        <div *ngIf="registerForm.get('merchantPassword').errors.required">password is required</div>
+                        <div *ngIf="registerForm.get('merchantPassword').errors.minlength">minimum 6 length is required
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn btn-success" name="addButton" [disabled]=!registerForm.valid>ADD</button>
+                &nbsp;&nbsp; <button type="reset" name="resetButton" class="btn btn-warning">Clear</button>
+                &nbsp;&nbsp; <button  name="backButton" class="btn btn-info"routerLink='/details' >Back</button>
+
+        </form>
+    </div>
+</div>

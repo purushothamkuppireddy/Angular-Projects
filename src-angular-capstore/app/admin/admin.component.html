@@ -1,0 +1,27 @@
+<!-- 
+<button class="btn btn-success" (click)="adminPage()" >Admin</button> -->
+<div class="container">
+    <h3 style="text-align: center;color: darkolivegreen"> MERCHANT</h3>
+<table border=1 class="table  table-bordered table-hover table-sm ">
+    <tr >
+      <th style="background-color:darkkhaki; text-align: center"> Merchant Id</th>  
+      <th style="background-color:darkkhaki;text-align: center">Merchant Name</th> 
+      <th style="background-color:darkkhaki; text-align: center">Merchant EmailId</th>     
+      <th style="background-color:darkkhaki; text-align: center">Merchant Status</th>  
+      <th style="background-color:darkkhaki; text-align: center">ACTIVATE</th>
+      <th style="background-color:darkkhaki; text-align: center">REMOVAL</th>
+
+    </tr>
+    <tr *ngFor="let merchant of merchants;let i=index">
+      <td style="text-align: center">{{merchant.merchantId}}</td>        <!--String Interpolation-->
+      <td style="text-align: center">{{merchant.merchantName}}</td>
+      <td style="text-align: center">{{merchant.merchantEmail}}</td>
+      <td style="text-align: center">{{merchant.approvalStatus}}</td>
+      
+   
+      <td style="text-align: center"><button class="btn btn-warning" (click)="approveMerchant(i)"[disabled]="clickfun(i)">Approve</button></td>   
+      <td style="text-align: center"><button name="deleteMerchant" class="btn btn-danger"(click)="deleteMerchant(i)">Remove</button></td>   
+    </tr>
+  </table>
+  <button type="button" name="backButton" class="btn btn-info"routerLink='/details' >Back</button>
+</div>
