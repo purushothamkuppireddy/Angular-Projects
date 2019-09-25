@@ -1,0 +1,51 @@
+<button *ngIf="!isloggedin">LOGIN</button>
+<button *ngIf="!isloggedin">LOGOUT</button>
+<ul>
+  <li *ngFor="let college of colleges">{{colleges}}</li>
+</ul>
+
+<div *ngFor="let car of cars" style="background-color: aqua" >
+  <h1>{{car.name |uppercase}}</h1>
+  <h1>{{car.speed|custom }}</h1>
+  <h1>{{car.color|json}}</h1>
+  <h1>{{todaydate|date:'fullDate'}}</h1>
+</div>
+
+
+<div [ngSwitch]="num">
+  <button *ngSwitchCase="10">Vjit</button>
+  <button *ngSwitchCase="9">cvsr</button>
+  <button *ngSwitchCase="8">bvrit</button>
+  <button *ngSwitchCase="7">mgit</button>
+  <button *ngSwitchDefault>invalid</button>
+  <br>
+  
+</div>
+<!-- property binding -->
+<img [src]="path" width="100" height="50" alt="photo">
+<br>
+<br>
+
+<!-- event binding -->
+<button (click)="buttonEvent()">click me</button>
+<br>
+<br>
+
+<!-- two way binding -->
+<input [(ngModel)]="msg">
+<h1> {{msg}}</h1>
+
+<br>
+
+
+<!-- String Interpolatiom -->
+<h1>{{display()}}</h1>
+<h1>{{message}}</h1>
+<br>
+<br>
+
+
+
+<input type="number" [(ngModel)]="num1">
+<input type="number" [(ngModel)]="num2">
+ <input type="submit" (click)="addition(num1,num2)">

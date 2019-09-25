@@ -1,0 +1,10 @@
+<p>
+  viewc working!
+</p>
+User Name:<input type="text" [(ngModel)]="userName">
+<button (click)="search()">search</button>
+<br>
+<div *ngIf="response">
+<p>login:{{response.login}}</p>
+<p>Login Id:{{response.id}}</p>
+</div>
